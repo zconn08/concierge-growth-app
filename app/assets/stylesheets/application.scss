@@ -47,3 +47,17 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-body {
+  display: none;
+}
+
+.bob-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+}
