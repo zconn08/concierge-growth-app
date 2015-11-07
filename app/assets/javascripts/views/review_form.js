@@ -41,7 +41,7 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
         newReferralLink.save(
           {referral: {"rating_id": rating.get("id")}}, {
           success: function(referral){
-            var linkAddress = "http://localhost:3000/referrals" + referral.attributes.referral_link
+            var linkAddress = "http://localhost:3000/referrals/" + referral.attributes.referral_link
             $("#referral-link").html(
               '<a href="' + linkAddress + '">' + linkAddress + "</a>"
             );
