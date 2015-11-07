@@ -18,7 +18,10 @@
  @import "bootstrap";
 
 body {
-  height: 100%;
+  width: 100%;
+  height: 100vh;
+  background-color: #5C6983;
+  font-family: 'freight-sans-pro', 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 .registration-background-wrapper {
@@ -46,6 +49,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }
 
 .modal-content {
@@ -68,19 +72,23 @@ body {
   margin: 0 auto;
 }
 
-.rating-content-wrapper {
-  background-color: #EBEBEB;
+.content-wrapper {
+  background-color: #F5F4F4;
   width: 50%;
-  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
   border-radius: 10px;
   text-align: center;
 }
 
-.rating-content-wrapper > h3 {
-  padding-top: 10px;
+.content-wrapper > h3 {
+  padding-top: 5px;
 }
 
-.rating-content-wrapper > img {
+.content-wrapper > img {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -91,4 +99,15 @@ body {
 
 #submit-rating {
   margin-bottom: 10px;
+}
+
+.sign-up-input {
+  box-shadow: rgba(18, 86, 136, 0.34902) 0px 0px 6px 0px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.48),0 1px 3px rgba(0,0,0,0.18);
+  margin-top: 7px;
+  width: 200px;
+}
+
+.sign-up-submit {
+  margin: 10px 0px;
 }
