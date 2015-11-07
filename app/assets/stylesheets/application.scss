@@ -57,7 +57,38 @@ body {
 }
 
 .bob-image {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
+}
+
+#referral-link {
+  border: 2px solid gray;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.rating-content-wrapper {
+  background-color: #EBEBEB;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.rating-content-wrapper > h3 {
+  padding-top: 10px;
+}
+
+.rating-content-wrapper > img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#star-rate {
+  margin-bottom: 10px;
+}
+
+#submit-rating {
+  margin-bottom: 10px;
 }

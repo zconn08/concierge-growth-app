@@ -1,22 +1,12 @@
-<h1>Tell Us More About Your Meeting With Bob</h1>
-<img src="http://res.cloudinary.com/dmyvxexqn/image/upload/w_640,h_640/v1446875449/fsfbltuu44fqvt1eki9b.jpg" class="bob-image" />
-<form id="rating-form">
-  <div id="star-rate">XX</div>
-  <textarea name="rating[rationale]" rows="8" cols="40"></textarea><br>
-  <button type="button" id="submit-rating" data-target="#myModal" data-toggle="modal" class="btn btn-success">Submit Rating</button>
-</form>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">Thanks for submitting!</div>
-      <div class="modal-body">
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-        Know anyone Bob should know?<br>
-        Tell them to sign up via this link, and we’ll set them up with Bob the next week!
-        <div id="referral-link">
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="rating-content-wrapper">
+  <h3>How was your meeting with Bob?</h3>
+  <img src="http://res.cloudinary.com/dmyvxexqn/image/upload/w_640,h_640/v1446875449/fsfbltuu44fqvt1eki9b.jpg" class="bob-image" />
+  <form id="rating-form">
+    <div id="star-rate"></div>
+    <textarea name="rating[rationale]" rows="4" cols="25" placeholder="Tell us a bit more..."></textarea>
+    <br>
+    <button type="button" id="submit-rating" class="btn btn-success">
+      Submit Rating
+    </button>
+  </form>
 </div>
