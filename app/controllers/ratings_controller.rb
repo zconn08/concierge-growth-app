@@ -28,15 +28,10 @@ class RatingsController < ApplicationController
     @rating = Rating.new(rating_params)
     @rating.rater = current_user.id
     @rating.rated = 1000
-
-    respond_to do |format|
-      if @rating.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
-        format.json { render :show, status: :created, location: @rating }
-      else
-        format.html { render :new }
-        format.json { render json: @rating.errors, status: :unprocessable_entity }
-      end
+    if @rating.save
+      render json: @rating
+    else
+      render json: @rating.errors.full_messages
     end
   end
 

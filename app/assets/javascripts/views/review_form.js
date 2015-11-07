@@ -18,7 +18,7 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
     this.$('#star-rate').raty('destroy');
     this.$('#star-rate').raty({
       path: '/assets/',
-      half: true,
+      half: false,
       score: 3,
       scoreName: 'rating[rating]'
     });
@@ -27,13 +27,27 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
   submitRating: function(e){
     e.preventDefault();
     var formData = this.$("form").serializeJSON();
+    if(parseInt(formData.rating.rating) > 3){
+      $(".modal-body").css("display", "inline");
+    }
+
+    // Save Rating
     var newRating = new ConciergeGrowthApp.Models.Rating();
     newRating.save(formData, {
-      success: function(response,b,c){
-        if(response.get("rating") > 3){
-          $(".modal-body").css("display", "inline");
-        }
-      },
+      success: function(rating,b,c){
+
+        // Save Referral
+        var newReferralLink = new ConciergeGrowthApp.Models.Referral();
+        newReferralLink.save(
+          {referral: {"rating_id": rating.get("id")}}, {
+          success: function(referral){
+            var linkAddress = "http://localhost:3000/referrals" + referral.attributes.referral_link
+            $("#referral-link").html(
+              '<a href="' + linkAddress + '">' + linkAddress + "</a>"
+            );
+          }.bind(this)
+        });
+      }.bind(this)
     });
   }
 
