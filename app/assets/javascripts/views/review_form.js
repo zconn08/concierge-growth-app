@@ -5,6 +5,10 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
     "click #submit-rating" : "submitRating"
   },
 
+  initialize: function(){
+    mixpanel.track("Rating Page View");
+  },
+
   render: function(){
     this.$el.html(this.template());
     this.onRender();

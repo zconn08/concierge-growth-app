@@ -4,6 +4,7 @@ ConciergeGrowthApp.Views.SubmittedForm = Backbone.View.extend({
   initialize: function(options){
     this.linkAddress = "http://localhost:3000/referrals/" + options.referralLink;
     this.showLink = options.showLink === "true";
+    mixpanel.track("Submitted Rating");
   },
 
   render: function(){
