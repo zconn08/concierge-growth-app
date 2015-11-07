@@ -4,12 +4,12 @@ window.ConciergeGrowthApp = {
   Views: {},
   Routers: {},
   initialize: function() {
+
     var router = new ConciergeGrowthApp.Routers.Router({
       $rootEl: $("#main-content")
     });
-    
-    Backbone.history.start();
 
+    Backbone.history.start();
   }
 };
 

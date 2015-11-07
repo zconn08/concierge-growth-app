@@ -10,7 +10,7 @@ class ReferralsController < ApplicationController
   end
 
   def show
-    @referral = Referral.find_by_referral_link(params[:id])
+    @referral = Referral.includes(rating: [:rating_user]).where(referral_link: params[:id])[0]
   end
 
   def random_code
