@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require serialize_json
+//= require bootstrap
 //= require concierge_growth_app
 //= require jquery.raty
 //= require_tree ../templates

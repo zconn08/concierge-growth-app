@@ -6,7 +6,11 @@ window.ConciergeGrowthApp = {
   initialize: function() {
     Backbone.history.start();
 
-    var view = new ConciergeGrowthApp.Views.ReviewForm();
+    var ratings = new ConciergeGrowthApp.Collections.Ratings();
+    var view = new ConciergeGrowthApp.Views.ReviewForm({
+      collection: ratings
+    });
+
     $("#main-content").html(view.render().$el);
   }
 };

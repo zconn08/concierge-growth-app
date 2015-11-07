@@ -26,7 +26,8 @@ class RatingsController < ApplicationController
   # POST /ratings.json
   def create
     @rating = Rating.new(rating_params)
-    @rating.rater_id = current_user.id
+    @rating.rater = current_user.id
+    @rating.rated = 1000
 
     respond_to do |format|
       if @rating.save
