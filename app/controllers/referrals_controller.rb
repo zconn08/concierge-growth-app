@@ -11,7 +11,6 @@ class ReferralsController < ApplicationController
 
   def show
     @referral = Referral.find_by_referral_link(params[:id])
-    fail
   end
 
   def random_code
