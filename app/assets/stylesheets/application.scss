@@ -35,9 +35,24 @@ body {
   min-height: 100%;
 }
 
+.registration-content-wrapper {
+  color: white;
+  width: 340px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.registration-content-wrapper > h2 {
+  text-align: center;
+}
+
 .button_to input {
-  width: 200px;
-  height: 70px;
+  width: 180px;
+  height: 60px;
   background-color: #4d90fe;
   color: #fff;
   font-weight: 700;
@@ -45,11 +60,10 @@ body {
   border: 1px solid #3079ed;
   text-align: center;
   border-radius: 3px;
-  position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .modal-content {
@@ -67,7 +81,7 @@ body {
 }
 
 #referral-link {
-  border: 2px solid gray;
+  border: 4px solid gray;
   width: 300px;
   margin: 0 auto;
 }
@@ -93,11 +107,7 @@ body {
   margin-bottom: 10px;
 }
 
-#star-rate {
-  margin-bottom: 10px;
-}
-
-#submit-rating {
+#star-rate, #submit-rating {
   margin-bottom: 10px;
 }
 

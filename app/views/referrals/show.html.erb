@@ -1,5 +1,10 @@
 <script type="text/javascript">
-  mixpanel.track("Invite Page View");
+  $(document).ready(function(){
+    mixpanel.track("Invite Page View");
+    $(".sign-up-submit").click(function(e){
+      mixpanel.track("Sign Up Button Clicked");
+    })
+  });
 </script>
 <div class="content-wrapper">
   <h3><%= @referral.rating.rating_user.first_name  %> thinks you should meet Bob</h3>
@@ -7,10 +12,13 @@
   <br>
   Join Concierge to meet Bob and other awesome professionals in SF
   <form action="<%= user_registration_url %>" method="post">
+    <%= auth_token %>
     <input type="text" name="user[first_name]" placeholder="First Name" class="sign-up-input"><br>
     <input type="text" name="user[last_name]" placeholder="Last Name" class="sign-up-input"><br>
+    <input type="password" name="user[password]" placeholder="Password" class="sign-up-input"><br>
     <input type="text" name="user[email]" placeholder="Email" class="sign-up-input"><br>
     <input type="text" name="user[linked_in_url]" placeholder="LinkedIn URL (Optional)" class="sign-up-input"><br>
+    <input type="hidden" name="user[referrer_id]" value="<%= @referral.rating.rating_user.id %>"><br>
     <input type="submit" value="Sign Up" class="sign-up-submit btn btn-success">
   </form>
 </div>

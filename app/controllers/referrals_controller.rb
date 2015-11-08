@@ -10,6 +10,7 @@ class ReferralsController < ApplicationController
   end
 
   def show
+    sign_out
     @referral = Referral.includes(rating: [:rating_user]).where(referral_link: params[:id])[0]
   end
 

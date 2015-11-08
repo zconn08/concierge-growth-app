@@ -12,6 +12,22 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  # User who referred you
+  belongs_to(
+    :referring_user,
+    class_name: "User",
+    foreign_key: :referrer_id,
+    primary_key: :id
+  )
+
+  # Users you referred
+  has_many(
+    :users_referred,
+    class_name: "User",
+    foreign_key: :referrer_id,
+    primary_key: :id
+  )
+
   def self.from_omniauth(auth)
      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
        user.provider = auth.provider

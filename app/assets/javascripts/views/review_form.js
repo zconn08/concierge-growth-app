@@ -36,12 +36,11 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
     // Save Rating
     var newRating = new ConciergeGrowthApp.Models.Rating();
     newRating.save(formData, {
-      success: function(rating,b,c){
+      success: function(rating){
 
         // Save Referral
         var newReferralLink = new ConciergeGrowthApp.Models.Referral();
-        newReferralLink.save(
-          {referral: {"rating_id": rating.get("id")}}, {
+        newReferralLink.save({referral: {"rating_id": rating.get("id")}}, {
           success: function(referral){
             Backbone.history.navigate("/submitted/" + referral.attributes.referral_link + "/" + showLink, {trigger: true});
           }.bind(this)

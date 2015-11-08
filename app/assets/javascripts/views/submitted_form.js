@@ -9,11 +9,15 @@ ConciergeGrowthApp.Views.SubmittedForm = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template({linkAddress: this.linkAddress}));
+    this.onRender();
+    return this;
+  },
+
+  onRender: function() {
     $('#myModal').modal('show');
     if(this.showLink){
       $(".modal-body").css("display", "inline");
     }
-    return this;
   },
 
 });

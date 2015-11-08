@@ -2,9 +2,12 @@
   mixpanel.track("Login Page View");
 </script>
 <div class="registration-background-wrapper">
-  <%- if devise_mapping.omniauthable? %>
-    <%- resource_class.omniauth_providers.each do |provider| %>
-      <%= button_to "Sign in with Google", omniauth_authorize_path(resource_name, provider, {class: 'sign-in-form'}) %><br />
+  <div class="registration-content-wrapper">
+    <h2>Welcome to Concierge</h2>
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= button_to "Sign in with Google", omniauth_authorize_path(resource_name, provider, {class: 'sign-in-form'}) %><br />
+      <% end -%>
     <% end -%>
-  <% end -%>
+  </div>
 </div
