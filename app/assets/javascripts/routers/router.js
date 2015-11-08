@@ -1,7 +1,7 @@
 ConciergeGrowthApp.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "index",
-    "submitted/:id/:boolean": "submittedRating",
+    "submitted/:id/:rating": "submittedRating",
   },
 
   initialize: function(options){
@@ -13,10 +13,10 @@ ConciergeGrowthApp.Routers.Router = Backbone.Router.extend({
     this.swapView(view);
   },
 
-  submittedRating: function(id, boolean){
+  submittedRating: function(id, rating){
     var view = new ConciergeGrowthApp.Views.SubmittedForm({
       referralLink: id,
-      showLink: boolean
+      rating: rating
     });
     this.swapView(view);
   },

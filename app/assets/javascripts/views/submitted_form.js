@@ -3,7 +3,7 @@ ConciergeGrowthApp.Views.SubmittedForm = Backbone.View.extend({
 
   initialize: function(options){
     this.linkAddress = "http://localhost:3000/referrals/" + options.referralLink;
-    this.showLink = options.showLink === "true";
+    this.rating = options.rating;
     mixpanel.track("Submitted Rating");
   },
 
@@ -15,8 +15,9 @@ ConciergeGrowthApp.Views.SubmittedForm = Backbone.View.extend({
 
   onRender: function() {
     $('#myModal').modal('show');
-    if(this.showLink){
+    if(parseInt(this.rating) > 3){
       $(".modal-body").css("display", "inline");
+      mixpanel.track("Invite Link Displayed", {"numStars": this.rating});
     }
   },
 

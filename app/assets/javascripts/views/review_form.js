@@ -28,10 +28,7 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
   submitRating: function(e){
     e.preventDefault();
     var formData = this.$("form").serializeJSON();
-    var showLink = "false";
-    if(parseInt(formData.rating.rating) > 3){
-      showLink = "true";
-    }
+    var numStars = formData.rating.rating
 
     // Save Rating
     var newRating = new ConciergeGrowthApp.Models.Rating();
@@ -42,7 +39,7 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
         var newReferralLink = new ConciergeGrowthApp.Models.Referral();
         newReferralLink.save({referral: {"rating_id": rating.get("id")}}, {
           success: function(referral){
-            Backbone.history.navigate("/submitted/" + referral.attributes.referral_link + "/" + showLink, {trigger: true});
+            Backbone.history.navigate("/submitted/" + referral.attributes.referral_link + "/" + numStars, {trigger: true});
           }.bind(this)
         });
       }.bind(this)

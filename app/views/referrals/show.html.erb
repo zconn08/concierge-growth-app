@@ -1,13 +1,13 @@
 <script type="text/javascript">
   $(document).ready(function(){
-    mixpanel.track("Invite Page View");
+    mixpanel.track("Invite Page View", { numStars : "<%= @rating %>"});
     $(".sign-up-submit").click(function(e){
-      mixpanel.track("Sign Up Button Clicked");
+      mixpanel.track("Sign Up Button Clicked",{ numStars : "<%= @rating %>"});
     })
   });
 </script>
 <div class="content-wrapper">
-  <h3><%= @referral.rating.rating_user.first_name  %> thinks you should meet Bob</h3>
+  <h3><%= @referrer  %> thinks you should meet Bob</h3>
   <img src="http://res.cloudinary.com/dmyvxexqn/image/upload/w_640,h_640/v1446875449/fsfbltuu44fqvt1eki9b.jpg" class="bob-image" />
   <br>
   Join Concierge to meet Bob and other awesome professionals in SF
