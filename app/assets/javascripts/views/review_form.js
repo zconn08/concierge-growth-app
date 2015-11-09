@@ -18,7 +18,9 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
   onRender: function() {
     this.$('#star-rate').raty('destroy');
     this.$('#star-rate').raty({
-      path: '/assets/',
+      path: '',
+      starOn: '<%= image_path("star-on.png") %>',
+      starOff: '<%= image_path("star-off.png") %>',
       half: false,
       score: 3,
       scoreName: 'rating[rating]'
