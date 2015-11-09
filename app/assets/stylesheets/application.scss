@@ -136,11 +136,11 @@ body {
   margin-left: 5%;
   width: 90%;
 }
-.separator {
-  width: 100%;
-  height: 1px;
-  background-color: grey;
-}
+// .separator {
+//   width: 100%;
+//   height: 1px;
+//   background-color: grey;
+// }
 
 .analytics-header {
   background-color: #003366;
@@ -169,4 +169,36 @@ body {
 
 .top-users-note {
   margin-top: -20px;
+}
+
+.metric-container {
+  background-color: #336699;
+  height: 50px;
+  width: 80px;
+  border-radius: 3px;
+  left: 50%;
+  font-size: 20px;
+  margin: 0 auto;
+  line-height: 50px;
+  color: white;
+}
+
+.metrics-row {
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.metrics-title-container {
+  font-size: 16px;
+  height: 50px;
+  position: relative;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+.metrics-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center
 }

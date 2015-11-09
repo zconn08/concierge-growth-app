@@ -1,5 +1,9 @@
 class RatingsController < ApplicationController
   before_action :authenticate_user!
+  def index
+    @ratings = Rating.all
+    render json: @ratings
+  end
 
   def new
     Event.create(event_type: "Rating Page View", user_id: current_user.id)
@@ -9,7 +13,7 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.new(rating_params)
     @rating.rater = current_user.id
-    @rating.rated = 1000
+    @rating.rated = 1000 #Placeholder ID for Bob
 
     if @rating.save
       Event.create(event_type: "Submitted Rating", user_id: current_user.id) unless @rating.rating > 3
