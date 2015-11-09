@@ -8,14 +8,14 @@ class RegistrationsController < Devise::RegistrationsController
     Event.create(event_type: "Sign Up Button Clicked", referral_id: params["referral_id"])
     if @user.save
       Event.create(event_type: "User Signed Up", referral_id: params["referral_id"], user_id: @user.id)
-      render json: @user
+      redirect_to action: "show", id: @user.id
     else
       render json: @user.errors.full_messages
     end
   end
 
   def show
-    
+    @user = User.find(params[:id])
   end
 
   def update
