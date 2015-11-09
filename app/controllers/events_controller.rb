@@ -5,10 +5,13 @@ class EventsController < ApplicationController
   end
 
   def admin
+    #Queries
     events_total = Event.group(:event_type).count
     events_by_rating = Event.joins(:rating).group([:event_type, :rating]).count
     unique_events = Event.group(:event_type).distinct.count(:user_id)
     unique_events_by_rating = Event.joins(:rating).group([:event_type, :rating]).distinct.count(:user_id)
+    referral_counts = User.where("referrer_id > ?", 0).group(:referrer_id).count
+    user_count = User.count
 
     # Funnel One Data
     @rating_page_view_percent = to_percent(unique_events["Rating Page View"], events_total["Login Page View"])
@@ -24,13 +27,12 @@ class EventsController < ApplicationController
     @successful_sign_up_percent_5 = to_percent(events_by_rating[["User Signed Up", 5]], unique_events_by_rating[["Submitted Rating", 5]])
 
     # Refer Info
-    referral_counts = User.where("referrer_id > ?", 0).group(:referrer_id).count
     sorted_referrers = referral_counts.sort_by{ |user, count| -count }
     total_referrals = referral_counts.inject(0) {|sum, hash| sum + hash[1]}
 
     #Top referrers driving invites
-    ten_percent_of_users = (User.count * 0.1).round
-    twenty_percent_of_users = (User.count * 0.2).round
+    ten_percent_of_users = (user_count * 0.1).round
+    twenty_percent_of_users = (user_count * 0.2).round
 
 
     referrals_from_ten_percent = sorted_referrers
