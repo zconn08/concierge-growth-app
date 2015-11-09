@@ -2,7 +2,7 @@ ConciergeGrowthApp.Views.SubmittedForm = Backbone.View.extend({
   template: JST['submitted_form'],
 
   initialize: function(options){
-    this.linkAddress = "http://localhost:3000/referrals/" + options.referralLink;
+    this.linkAddress = "https://concierge-growth-app.herokuapp.com/referrals/" + options.referralLink;
     this.rating = options.rating;
     mixpanel.track("Submitted Rating");
   },
