@@ -67,6 +67,7 @@ class EventsController < ApplicationController
   end
 
   def to_percent(numerator, denominator)
+    return 0 unless numerator.is_a?(Fixnum) && denominator.is_a?(Fixnum)
     (numerator.to_f / denominator.to_f * 100).round
   end
 
