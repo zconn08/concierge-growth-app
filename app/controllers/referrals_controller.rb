@@ -12,7 +12,7 @@ class ReferralsController < ApplicationController
 
   def show
     sign_out
-    @referral = Referral.includes(rating: [:rating_user]).where(referral_link: params[:id])[0]
+    @referral = Referral.includes(rating: [:rating_user]).where(referral_link: params[:id]).first
     @referrer = @referral.referring_user.first_name
     @rating = @referral.rating.rating
     Event.create(event_type: "Invite Page View", referral_id: @referral.id)

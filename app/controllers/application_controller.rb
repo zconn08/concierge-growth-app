@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_devise_permitted_parameters
-    registration_params = [:first_name, :last_name, :email, :password, :linked_in_url, :referrer_id]
+    registration_params = [:first_name, :last_name, :email, :password, :linked_in_url, :referrer_id, :prof_pic_url]
 
     if params[:action] == 'create'
       devise_parameter_sanitizer.for(:sign_up) {
