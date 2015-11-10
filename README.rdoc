@@ -1,28 +1,14 @@
-== README
+# Concierge Growth App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[heroku]: https://concierge-growth-app.herokuapp.com/
+[analytics]: https://concierge-growth-app.herokuapp.com/admin
 
-Things you may want to cover:
+Concierge Growth App is a rating and invite feature.
+[Prototype][heroku]
 
-* Ruby version
+The success of this feature is tested with a custom built analytics dashboard.
+[Analytics Dashboard][analytics]
 
-* System dependencies
+It built on a Rails backend with a Postgres database and a Backbone.js front end. Google OAuth 2.0 and Chartkick are used for login and data visualization, respectively.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Please refer to the Gemfile for a comprehensive list of gems used.
