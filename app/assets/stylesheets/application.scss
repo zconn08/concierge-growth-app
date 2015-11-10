@@ -30,7 +30,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-
   min-width: 100%;
   min-height: 100%;
 }
@@ -157,10 +156,6 @@ body {
   border-color: #003366;
 }
 
-.top-users-note {
-  margin-top: -20px;
-}
-
 .metric-container {
   background-color: #336699;
   height: 50px;
@@ -188,6 +183,7 @@ body {
   position: relative;
   margin-top: 20px;
 }
+
 .metrics-title {
   position: absolute;
   bottom: 0;
@@ -199,4 +195,12 @@ body {
 .chart-container {
   width: 90%;
   margin-left: 5%;
+}
+
+.error-list {
+  text-align: left;
+}
+
+.show-user-wrapper {
+  padding-bottom: 10px;
 }

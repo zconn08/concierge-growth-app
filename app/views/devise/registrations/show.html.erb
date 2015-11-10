@@ -1,5 +1,15 @@
-<div class="content-wrapper">
-  <h3>Thanks for signing up, <%= @user.first_name %></h3>
-  <br>
-  <%= link_to "Sign In?", new_user_session_url %>
+<div class="content-wrapper show-user-wrapper">
+  <% if flash[:errors] %>
+  <ul class="error-list">
+    <% flash[:errors].each do |error| %>
+      <li> <%= error[0] %> </li>
+    <% end %>
+  </ul>
+  <% elsif @user.nil? %>
+  <% else %>
+    <h3>Thanks for signing up, <%= @user.first_name %></h3>
+    <br>
+    <%= link_to "Sign In?", new_user_session_url %>
+  <% end %>
+
 </div>

@@ -63,7 +63,16 @@ class AdminController < ApplicationController
      },
     ]
 
-    #page views by rating
+    #Top Users Driving Sign Up
+    top_ten_percent_of_referrals = percent_of_referrals(referral_counts, user_count, 0.1)
+    top_twenty_percent_of_referrals = percent_of_referrals(referral_counts, user_count, 0.2)
+
+    @percent_of_users_driving_sign_up = [
+      ["Percent of Signups From Top 10%", top_ten_percent_of_referrals],
+      ["Percent of Signups From Top 20%", top_twenty_percent_of_referrals],
+    ]
+
+    #Invite Page Views Per Link by Rating
     @page_views_per_invite_link_displayed_four = to_multiplier(
       events_by_rating[["Invite Page View",4]],
       events_by_rating[["Submitted Rating",4]]
@@ -78,16 +87,7 @@ class AdminController < ApplicationController
       ["5 Rating", @page_views_per_invite_link_displayed_five]
     ]
 
-    #Top Users Driving Sign Up
-    top_ten_percent_of_referrals = percent_of_referrals(referral_counts, user_count, 0.1)
-    top_twenty_percent_of_referrals = percent_of_referrals(referral_counts, user_count, 0.2)
-
-    @percent_of_users_driving_sign_up = [
-      ["Percent of Signups From Top 10%", top_ten_percent_of_referrals],
-      ["Percent of Signups From Top 20%", top_twenty_percent_of_referrals],
-    ]
-
-    #Ratings Percent Breakdown and Raw Numbers Calculated Above
+    #Total Ratings By Number of Stars and Raw Numbers Accounted For Above
 
   end
 

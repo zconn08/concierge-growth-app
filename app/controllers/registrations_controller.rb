@@ -10,12 +10,13 @@ class RegistrationsController < Devise::RegistrationsController
       Event.create(event_type: "User Signed Up", referral_id: params["referral_id"], user_id: @user.id)
       redirect_to action: "show", id: @user.id
     else
-      render json: @user.errors.full_messages
+      flash[:errors] = [@user.errors.full_messages]
+      redirect_to action: "show", id: 0
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = params[:id] == "0" ? nil : User.find(params[:id])
   end
 
   def update
