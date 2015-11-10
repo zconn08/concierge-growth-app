@@ -4,11 +4,7 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
   events: {
     "click #submit-rating" : "submitRating"
   },
-
-  initialize: function(){
-    mixpanel.track("Rating Page View");
-  },
-
+  
   render: function(){
     this.$el.html(this.template());
     this.onRender();
@@ -28,7 +24,7 @@ ConciergeGrowthApp.Views.ReviewForm = Backbone.View.extend({
   submitRating: function(e){
     e.preventDefault();
     var formData = this.$("form").serializeJSON();
-    var numStars = formData.rating.rating
+    var numStars = formData.rating.rating;
 
     // Save Rating
     var newRating = new ConciergeGrowthApp.Models.Rating();

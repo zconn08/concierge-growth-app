@@ -11,7 +11,7 @@ class ReferralsController < ApplicationController
   end
 
   def show
-    sign_out
+    sign_out #For demo purposes so you can sign up when directly clicking on referral link
     @referral = Referral.includes(rating: [:rating_user]).where(referral_link: params[:id]).first
     @referrer = @referral.referring_user.first_name
     @rating = @referral.rating.rating

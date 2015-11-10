@@ -37,6 +37,12 @@
   </div>
   <br>
   <br>
+  <h4>Invite Page Views Per Displayed Link by Rating</h4>
+  <div class="chart-container">
+    <%= bar_chart(@page_views_by_rating) %>
+  </div>
+  <br>
+  <br>
   <h4>Top Users Driving Sign Up</h4>
   <table class="table table-striped table-bordered analytics-table">
     <th>
@@ -63,7 +69,7 @@
   <br>
   <h4>Ratings Percent Breakdown</h4>
   <div class="chart-container">
-    <%= column_chart(@ratings_percent_breakdown) %>
+    <%= pie_chart(@ratings_percent_breakdown) %>
   </div>
   <br>
 </div>

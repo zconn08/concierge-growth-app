@@ -1,11 +1,3 @@
-<script type="text/javascript">
-  $(document).ready(function(){
-    mixpanel.track("Invite Page View", { numStars : "<%= @rating %>"});
-    $(".sign-up-submit").click(function(e){
-      mixpanel.track("Sign Up Button Clicked",{ numStars : "<%= @rating %>"});
-    })
-  });
-</script>
 <div class="content-wrapper">
   <h3><%= @referrer  %> thinks you should meet Bob</h3>
   <img src="http://res.cloudinary.com/dmyvxexqn/image/upload/w_640,h_640/v1446875449/fsfbltuu44fqvt1eki9b.jpg" class="bob-image" />
