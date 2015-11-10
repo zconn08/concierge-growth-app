@@ -5,12 +5,12 @@ class AdminController < ApplicationController
     @events_total = Event.group(:event_type).count
     @unique_events = Event.group(:event_type).distinct.count(:user_id)
     events_by_rating = Event.joins(:rating).group([:event_type, :rating]).count
-    ratings_count = Rating.group(:rating).count
+    @ratings_count = Rating.group(:rating).count
     referral_counts = User.where("referrer_id > ?", 0).group(:referrer_id).count
     user_count = User.count
 
     #Key Metrics
-    total_ratings = hash_sum_values(ratings_count)
+    total_ratings = hash_sum_values(@ratings_count)
     @fours_and_fives_submited = events_by_rating[["Submitted Rating",4]].to_i + events_by_rating[["Submitted Rating",5]].to_i
 
     @submitted_rating_percent = to_percent(
@@ -18,7 +18,7 @@ class AdminController < ApplicationController
       @unique_events["Rating Page View"]
     )
     @percent_four_or_five_ratings = to_percent(
-      ratings_count[4].to_i + ratings_count[5].to_i,
+      @ratings_count[4].to_i + @ratings_count[5].to_i,
       total_ratings
     )
     @page_views_per_invite_link_displayed = to_multiplier(
@@ -87,10 +87,7 @@ class AdminController < ApplicationController
       ["Percent of Signups From Top 20%", top_twenty_percent_of_referrals],
     ]
 
-    #Ratings Percent Breakdown
-    @ratings_percent_breakdown = ratings_count.map do |rating, num_ratings|
-       [rating, to_percent(num_ratings, total_ratings)]
-     end
+    #Ratings Percent Breakdown and Raw Numbers Calculated Above
 
   end
 
