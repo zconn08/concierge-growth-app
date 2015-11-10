@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <div class="metrics-title-container"><div class="metrics-title">Invite Page Views Per Displayed Link</div></div>
+      <div class="metrics-title-container"><div class="metrics-title">Invite Page Views Per Link</div></div>
       <div class="metric-container">
         <%= @page_views_per_invite_link_displayed %>x
       </div>
@@ -86,6 +86,14 @@
           </td>
           <td>
             <%= @unique_events["Submitted Rating"] %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Unique Submitted Ratings (4 or 5)</strong>
+          </td>
+          <td>
+            <%= @fours_and_fives_submited %>
           </td>
         </tr>
         <tr>

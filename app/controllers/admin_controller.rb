@@ -11,6 +11,7 @@ class AdminController < ApplicationController
 
     #Key Metrics
     total_ratings = hash_sum_values(ratings_count)
+    @fours_and_fives_submited = events_by_rating[["Submitted Rating",4]].to_i + events_by_rating[["Submitted Rating",5]].to_i
 
     @submitted_rating_percent = to_percent(
       @unique_events["Submitted Rating"],
@@ -22,7 +23,7 @@ class AdminController < ApplicationController
     )
     @page_views_per_invite_link_displayed = to_multiplier(
       @events_total["Invite Page View"],
-      events_by_rating[["Submitted Rating",4]].to_i + events_by_rating[["Submitted Rating",5]].to_i
+      @fours_and_fives_submited
     )
     @signups_per_invite_page_view = to_percent(
       @events_total["User Signed Up"],
