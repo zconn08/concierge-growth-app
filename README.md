@@ -1,6 +1,8 @@
 # Concierge Growth App
-[Prototype](https://concierge-growth-app.herokuapp.com/)
-[Analytics Dashboard](https://concierge-growth-app.herokuapp.com/admin)
+
+Relevant Links
+* [Prototype](https://concierge-growth-app.herokuapp.com/)
+* [Analytics Dashboard](https://concierge-growth-app.herokuapp.com/admin)
 
 Concierge Growth App is a feature that has the following steps:
 * Login with Google
@@ -14,6 +16,6 @@ The success of this feature is tested with a custom built analytics dashboard. K
 * Invite Page Views Per Link (%)
 * Sign Ups Per Invite Page View (%)
 
-It built on a Rails backend with a Postgres database and a Backbone.js front end. Google OAuth 2.0 and Chartkick are used for login and data visualization, respectively.
+It is built on a Rails backend with a Postgres database and a Backbone.js front end. Google OAuth 2.0 and Chartkick are used for login and data visualization, respectively.
 
 Please refer to the Gemfile for a comprehensive list of gems used.
