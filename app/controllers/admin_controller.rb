@@ -73,18 +73,18 @@ class AdminController < ApplicationController
     ]
 
     #Invite Page Views Per Link by Rating
-    @page_views_per_invite_link_displayed_four = to_multiplier(
+    page_views_per_invite_link_displayed_four = to_multiplier(
       events_by_rating[["Invite Page View",4]],
       events_by_rating[["Submitted Rating",4]]
     )
-    @page_views_per_invite_link_displayed_five = to_multiplier(
+    page_views_per_invite_link_displayed_five = to_multiplier(
       events_by_rating[["Invite Page View",5]],
       events_by_rating[["Submitted Rating",5]]
     )
 
     @page_views_by_rating = [
-      ["4 Rating", @page_views_per_invite_link_displayed_four],
-      ["5 Rating", @page_views_per_invite_link_displayed_five]
+      ["4 Rating", page_views_per_invite_link_displayed_four],
+      ["5 Rating", page_views_per_invite_link_displayed_five]
     ]
 
     #Total Ratings By Number of Stars and Raw Numbers Accounted For Above
