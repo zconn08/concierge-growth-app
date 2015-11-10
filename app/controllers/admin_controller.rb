@@ -3,9 +3,9 @@ class AdminController < ApplicationController
   def index
     #Queries
     @events_total = Event.group(:event_type).count
-    events_by_rating = Event.joins(:rating).group([:event_type, :rating]).count
     @unique_events = Event.group(:event_type).distinct.count(:user_id)
-    ratings_count = Rating.group(:rating).distinct.count(:rater)
+    events_by_rating = Event.joins(:rating).group([:event_type, :rating]).count
+    ratings_count = Rating.group(:rating).count
     referral_counts = User.where("referrer_id > ?", 0).group(:referrer_id).count
     user_count = User.count
 
@@ -79,7 +79,6 @@ class AdminController < ApplicationController
     ]
 
     #Top Users Driving Sign Up
-
     top_ten_percent_of_referrals = percent_of_referrals(referral_counts, user_count, 0.1)
     top_twenty_percent_of_referrals = percent_of_referrals(referral_counts, user_count, 0.2)
 
