@@ -5,7 +5,7 @@
   <h4 class="key-metrics-header">Key Metrics</h4>
   <div class="row metrics-row">
     <div class="col-md-3">
-      <div class="metrics-title-container"><div class="metrics-title">Rating Submissions Per Rating Page View</div></div>
+      <div class="metrics-title-container"><div class="metrics-title">Rating Submissions Per Rating Page View (Unique)</div></div>
       <div class="metric-container">
         <%= @submitted_rating_percent %>%
       </div>
@@ -31,45 +31,91 @@
   </div>
   <br>
   <br>
-  <h4>Conversion on Sign Up Page</h4>
   <div class="chart-container">
+    <h4>Conversion on Sign Up Page</h4>
     <%= column_chart(@funnel) %>
+
   </div>
   <br>
   <br>
-  <h4>Invite Page Views Per Displayed Link by Rating</h4>
-  <div class="chart-container">
-    <%= bar_chart(@page_views_by_rating) %>
+
+  <div class="row chart-container">
+    <div class="col-md-6">
+      <h4>Top Users Driving Sign Up</h4>
+      <%= column_chart(@percent_of_users_driving_sign_up) %>
+    </div>
+    <div class="col-md-6">
+    <h4>Invite Page Views Per Link by Rating</h4>
+      <%= bar_chart(@page_views_by_rating) %>
+    </div>
   </div>
   <br>
   <br>
-  <h4>Top Users Driving Sign Up</h4>
-  <table class="table table-striped table-bordered analytics-table">
-    <th>
-      <td>
-        <strong>From Top 10%</strong>
-      </td>
-      <td>
-        <strong>From Top 20%</strong>
-      </td>
-    </th>
-    <tr>
-      <td>
-        <strong>Sign Ups</strong>
-      </td>
-      <td>
-        <%= @top_ten_percent_of_referrals %>%
-      </td>
-      <td>
-        <%= @top_twenty_percent_of_referrals %>%
-      </td>
-    </tr>
-  </table>
+  <div class="row chart-container">
+    <div class="col-md-6">
+      <h4>Ratings By Number of Stars</h4>
+        <%= pie_chart(@ratings_percent_breakdown) %>
+      </div>
+    <div class="col-md-6">
+      <h4>Raw Numbers</h4>
+      <table class="table table-striped table-bordered analytics-table">
+        <th>
+          <td>
+            #
+          </td>
+        </th>
+        <tr>
+          <td>
+            <strong>Total Login Page Views</strong>
+          </td>
+          <td>
+            <%= @events_total["Login Page View"] %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Unique Rating Page Views</strong>
+          </td>
+          <td>
+            <%= @unique_events["Rating Page View"] %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Unique Submitted Ratings</strong>
+          </td>
+          <td>
+            <%= @unique_events["Submitted Rating"] %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Total Invite Page Views</strong>
+          </td>
+          <td>
+            <%= @events_total["Invite Page View"] %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Sign Up Button Clicked</strong>
+          </td>
+          <td>
+            <%= @events_total["Sign Up Button Clicked"] %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Total Sign Ups</strong>
+          </td>
+          <td>
+            <%= @events_total["User Signed Up"] %>
+          </td>
+        </tr>
+      </table>
+    </div>
   <br>
-  <br>
-  <h4>Ratings Percent Breakdown</h4>
-  <div class="chart-container">
-    <%= pie_chart(@ratings_percent_breakdown) %>
   </div>
+  <br>
   <br>
 </div>
